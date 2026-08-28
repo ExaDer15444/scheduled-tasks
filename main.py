@@ -71,7 +71,7 @@ def message_for_asia(codes):
 weather_params = {
     "lat": 54.42880315,
     "lon": 18.798325902846855,
-    "appid": API_KEY,
+    "appid": api_key,
     "cnt": 4,
 }
 
