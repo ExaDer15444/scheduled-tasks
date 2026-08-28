@@ -3,6 +3,7 @@ import os
 import smtplib
 import ssl
 from email.mime.text import MIMEText
+from email.header import Header
 
 
 
@@ -100,7 +101,10 @@ message = MIMEText(
 
 message["From"] = my_email
 message["To"] = to_email
-message["Subject"] = "Specjalna prognoza pogody dla żonki"
+message["Subject"] = Header(
+    "Specjalna prognoza pogody dla żonki",
+    "utf-8"
+)
 
 context = ssl.create_default_context()
 
