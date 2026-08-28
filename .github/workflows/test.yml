@@ -23,10 +23,10 @@ jobs:
 
       - name: Check secrets are configured
         env:
-              OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
-              WP_EMAIL: ${{ secrets.WP_EMAIL }}
-              TO_EMAIL: ${{ secrets.TO_EMAIL }}
-              WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+          OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
+          WP_EMAIL: ${{ secrets.WP_EMAIL }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
         run: |
           if [ -z "$OWM_API_KEY" ]; then
             echo "OWM_API_KEY secret is not set!"
@@ -50,7 +50,7 @@ jobs:
           fi
 
           if [ -z "$WP_PASSWORD" ]; then
-            echo "PASSWORD secret is not set!"
+            echo "WP_PASSWORD secret is not set!"
             exit 1
           else
             echo "WP_PASSWORD is configured"
@@ -81,7 +81,7 @@ jobs:
           echo "All required files found!"
 
       - name: Test Python syntax
-        run: python -m py_compile main.py && echo "Python syntax OK"
+        run: python -m py_compile main.py
 
       - name: Success
         run: |
