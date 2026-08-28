@@ -7,11 +7,11 @@ from email.mime.text import MIMEText
 
 
 OWM_Endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-API_KEY = os.environ.get("OWM_API_KEY")
 
+api_key = os.environ.get("OWM_API_KEY")
 my_email = os.environ.get("WP_EMAIL")
-PASSWORD = os.environ.get("WP_PASSWORD")
 to_email = os.environ.get("TO_EMAIL")
+my_password = os.environ.get("WP_PASSWORD")
 
 
 
