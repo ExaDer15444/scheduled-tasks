@@ -23,23 +23,23 @@ jobs:
 
       - name: Check secrets are configured
         env:
-          API_KEY: ${{ secrets.API_KEY }}
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
-          TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+              OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
+              WP_EMAIL: ${{ secrets.WP_EMAIL }}
+              TO_EMAIL: ${{ secrets.TO_EMAIL }}
+              WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
         run: |
-          if [ -z "$API_KEY" ]; then
-            echo "API_KEY secret is not set!"
+          if [ -z "$OWM_API_KEY" ]; then
+            echo "OWM_API_KEY secret is not set!"
             exit 1
           else
-            echo "API_KEY is configured"
+            echo "OWM_API_KEY is configured"
           fi
 
-          if [ -z "$MY_EMAIL" ]; then
-            echo "MY_EMAIL secret is not set!"
+          if [ -z "$WP_EMAIL" ]; then
+            echo "WP_EMAIL secret is not set!"
             exit 1
           else
-            echo "MY_EMAIL is configured"
+            echo "WP_EMAIL is configured"
           fi
 
           if [ -z "$TO_EMAIL" ]; then
@@ -49,11 +49,11 @@ jobs:
             echo "TO_EMAIL is configured"
           fi
 
-          if [ -z "$PASSWORD" ]; then
+          if [ -z "$WP_PASSWORD" ]; then
             echo "PASSWORD secret is not set!"
             exit 1
           else
-            echo "PASSWORD is configured"
+            echo "WP_PASSWORD is configured"
           fi
 
           echo ""
