@@ -110,7 +110,7 @@ with smtplib.SMTP_SSL("smtp.wp.pl", 465, context=context) as connection:
 
     connection.login(
         user=my_email,
-        password=PASSWORD
+        password=my_password
     )
 
     print("3. Zalogowano")
