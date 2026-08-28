@@ -2,21 +2,8 @@ name: Daily Weather
 
 on:
   schedule:
-    # ╔═══════════════════════════════════════════════════════════════╗
-    # ║  CHANGE THE LINE BELOW to set when your script runs          ║
-    # ║                                                                ║
-    # ║  Format:  'MINUTE HOUR * * *'                                  ║
-    # ║                                                                ║
-    # ║  Examples:                                                     ║
-    # ║    '0 9 * * *'   = 9:00 AM UTC daily                          ║
-    # ║    '30 14 * * *' = 2:30 PM UTC daily                          ║
-    # ║    '0 0 * * *'   = Midnight UTC daily                         ║
-    # ║                                                                ║
-    # ║  Use https://time.is/UTC to find your local time in UTC       ║
-    # ╚═══════════════════════════════════════════════════════════════╝
-    - cron: '0 6 * * *'
+    - cron: '0 9 * * *'
 
-  # This adds a "Run workflow" button so you can test manually
   workflow_dispatch:
 
 jobs:
@@ -37,10 +24,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run script
+      - name: Run weather script
         env:
-          API_KEY: ${{ secrets.OWM_API_KEY }}
-          MY_EMAIL: ${{ secrets.WP_EMAIL }}
+          OWM_API_KEY: ${{ secrets.OWM_API_KEY }}
+          WP_EMAIL: ${{ secrets.WP_EMAIL }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          PASSWORD: ${{ secrets.WP_PASSWORD }}
+          WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
         run: python main.py
