@@ -39,8 +39,8 @@ jobs:
 
       - name: Run script
         env:
-          API_KEY: ${{ secrets.API_KEY }}
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          API_KEY: ${{ secrets.OWM_API_KEY }}
+          MY_EMAIL: ${{ secrets.WP_EMAIL }}
           TO_EMAIL: ${{ secrets.TO_EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          PASSWORD: ${{ secrets.WP_PASSWORD }}
         run: python main.py
